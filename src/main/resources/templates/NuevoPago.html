@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
+	layout:decorate="~{plantilla/plantillaPrincipal}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+	<div layout:fragment="content">
+		<section class="content-header">
+		
+			<!-- /.container-fluid -->
+		</section>
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+
+					<div class="col-sm-6"></div>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+		<div class="container-fluid">
+
+
+			<form th:action="@{/guardarPago}" th:object="${nuevoPago}" method="post">
+
+				<div class="mb-3">
+					<label class="form-label">Tipo de Pago</label> <input type="text"
+						th:field="*{nombrePago}" class="form-control" id="nombrePago"
+						aria-describedby="nombrePago">
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label">Descripcion</label> <input type="text"
+						th:field="*{descripcion}" class="form-control" id="descripcion"
+						aria-describedby="descripcion">
+				</div>
+
+				
+				<div class="mb-3">
+					<label class="form-label">Estado</label> <input type="text"
+						th:field="*{estado}" class="form-control" id="estado"
+						aria-describedby="estado">
+				</div>
+
+
+				<button type="submit" class="btn btn-primary">save</button>
+				<input type="hidden" th:field="*{idTipoPago}">
+				<button class="btn btn-primary"
+					
+					type="button">back</button>
+			</form>
+			<!-- /.container-fluid -->
+			<!-- /.card-body -->
+		</div>
+
+	</div>
+
+</body>
+</html>

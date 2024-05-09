@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
+layout:decorate="~{plantilla/plantillaPrincipal}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body >
+	<div layout:fragment="content">
+	<section class="content-header">
+			
+				<!-- /.container-fluid -->
+			</section>
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+
+						<div class="col-sm-6"></div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+			<div class="container-fluid">
+
+				
+
+				<form th:action="@{/guardarCategoria}" th:object="${nuevaCat}"
+					method="post">
+
+					<div class="mb-3">
+						<label class="form-label">Nombre de la Categoria</label> <input
+							type="text" th:field="*{nombreCatergoria}" class="form-control"
+							id="nombreCategoria" aria-describedby="nombreCategoria">
+					</div>
+
+					<div class="mb-3">
+						<label class="form-label">descripcion de la categoria</label> <input
+							type="text" th:field="*{descripcion}" class="form-control"
+							id="descripcion" aria-describedby="descripcion">
+					</div>
+
+
+
+					<div class="mb-3">
+						<label class="form-label">Estado</label> <input type="text"
+							th:field="*{estado}" class="form-control" id="estado"
+							aria-describedby="Estado"> 
+					</div>
+
+
+					<button type="submit" class="btn btn-primary">save</button>
+					<input 
+							th:field="*{idCategoria}">
+					
+				</form>
+				
+			</div>
+
+		</div>
+	
+</body>
+</html>

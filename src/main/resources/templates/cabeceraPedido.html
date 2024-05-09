@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
+	layout:decorate="~{plantilla/plantillaPrincipal}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body class="hold-transition sidebar-mini">
+	<div class="card" layout:fragment="content">
+		
+		<!-- /.card-header -->
+		<div class="card-body table-responsive p-0">
+			<table class="table table-hover text-nowrap">
+				<thead>
+					<tr>
+						<th scope="col">id Pedidos</th>
+						<th scope="col">Empleados</th>
+						<th scope="col">Clientes</th>
+						<th scope="col">Categoria</th>
+						<th scope="col">Producto</th>
+						<th scope="col">Fecha del pedido</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Eliminar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tmp:${listaPedidos}">
+						<td th:text="${tmp.idPedidos}"></td>
+						<td th:text="${tmp.fkUsuarios != null ? tmp.fkUsuarios.nombreUsuario : ''}"></td>
+						<td th:text="${tmp.fkClientes != null ? tmp.fkClientes.nombre : ''}"></td>
+						<td th:text="${tmp.fkCategoria != null ? tmp.fkCategoria.nombreCatergoria : ''}"></td>
+						<td th:text="${tmp.fkProducto != null ? tmp.fkProducto.nombre : ''}"></td>
+						<td th:text="${tmp.fechaPedidos}"></td>
+						<td><a th:href="@{/editarPedido/}+${tmp.idPedidos}"
+							class="btn btn-success btn-circle"> <i class="fas fa-edit"></i>
+						</a></td>
+						<td><a
+							
+							th:href="@{/eliminarPedido/}+${tmp.idPedidos}"
+							class="btn btn-danger btn-circle"> <i class="fas fa-trash"></i>
+						</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

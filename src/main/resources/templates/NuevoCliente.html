@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
+layout:decorate="~{plantilla/plantillaPrincipal}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body >
+	<div layout:fragment="content">
+	<section class="content-header">
+			
+				<!-- /.container-fluid -->
+			</section>
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<div class="container-fluid">
+					<div class="row mb-2">
+
+						<div class="col-sm-6"></div>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</section>
+			<div class="container-fluid">
+
+				
+
+				<form th:action="@{/guardarCliente}" th:object="${nuevoCli}"
+					method="post">
+
+					<div class="mb-3">
+						<label class="form-label">Nombre Cliente</label> <input
+							type="text" th:field="*{nombre}" class="form-control"
+							id="nombre" aria-describedby="nombre">
+					</div>
+
+					<div class="mb-3">
+						<label class="form-label">Apellido  Cliente</label> <input
+							type="text" th:field="*{apellido}" class="form-control"
+							id="apellido" aria-describedby="apellido">
+				
+
+
+					<button type="submit" class="btn btn-primary">save</button>
+					<input type="hidden"
+							th:field="*{idCliente}">
+					<button class="btn btn-primary"
+						
+						type="button">back</button>
+				</form>
+				
+			</div>
+
+		</div>
+	
+</body>
+</html>
