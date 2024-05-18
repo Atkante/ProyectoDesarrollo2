@@ -28,12 +28,12 @@ layout:decorate="~{plantilla/plantillaPrincipal}">
 
 				
 
-				<form th:action="@{/guardarCategoria}" th:object="${nuevaCat}"
+				<form th:action="@{/guardarCategoria}" th:object="${nueva}"
 					method="post">
 
 					<div class="mb-3">
 						<label class="form-label">Nombre de la Categoria</label> <input
-							type="text" th:field="*{nombreCatergoria}" class="form-control"
+							)type="text" th:field="*{nombreCatergoria}" class="form-control"
 							id="nombreCategoria" aria-describedby="nombreCategoria">
 					</div>
 
