@@ -4,5 +4,6 @@ public class inicio {
     @GetMapping("/inicio")
     public String abrirIndex(){
         return "Inicio";
+        
     }
 }
