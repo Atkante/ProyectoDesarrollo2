@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
+  layout:decorate="~{plantilla/plantillaPrincipal}"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div layout:fragment="content">
+      <section class="content-header">
+        <!-- /.container-fluid -->
+      </section>
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6"></div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <div class="container-fluid">
+        <form
+          th:action="@{/guardarUsuarios}"
+          th:object="${nuevoUsuario}"
+          method="post"
+        >
+          <div class="mb-3">
+            <label class="form-label">Nombre Usuario</label>
+            <input
+              type="text"
+              th:field="*{nombreUsuario}"
+              class="form-control"
+              id="nombreUsuario"
+              aria-describedby="nombreUsuario"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Apellido Usuario</label>
+            <input
+              type="text"
+              th:field="*{apellidoUsuario}"
+              class="form-control"
+              id="apellidoUsuario"
+              aria-describedby="apellidoUsuario"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Salario</label>
+            <input
+              type="number"
+              th:field="*{salario}"
+              class="form-control"
+              id="apellidoUsuario"
+              aria-describedby="apellidoUsuario"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">save</button>
+          <input type="hidden" th:field="*{idUsuario}" />
+          <button class="btn btn-primary" type="button">back</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

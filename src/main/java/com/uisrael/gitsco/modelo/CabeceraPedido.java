@@ -37,11 +37,5 @@ public class CabeceraPedido implements Serializable{
 	@JoinColumn(name = "fkUsuarios")
 	private Usuarios fkUsuarios;
 	
-	@ManyToOne
-	@JoinColumn(name = "fkCategoria")
-	private Categoria fkCategoria;
 	
-	@ManyToOne
-	@JoinColumn(name = "fkProducto")
-	private Producto fkProducto;
 }

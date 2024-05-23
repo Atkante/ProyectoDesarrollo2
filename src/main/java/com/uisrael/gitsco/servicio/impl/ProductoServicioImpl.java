@@ -48,11 +48,11 @@ public class ProductoServicioImpl implements ProductoServicio{
 		return null;
 	}
 
-	@Override
-	public List<Producto> listarProductosCategoria(int idCategoria, String nombreCatergoria) {
-		// TODO Auto-generated method stub
-		return repo.listarProductosCategoria(idCategoria, nombreCatergoria);
-	}
+	// @Override
+	// public List<Producto> listarProductosCategoria(int idCategoria, String nombreCatergoria) {
+	// 	// TODO Auto-generated method stub
+	// 	return repo.listarProductosCategoria(idCategoria, nombreCatergoria);
+	// }
 
 	@Override
 	public void eliminarProducto(int id) {

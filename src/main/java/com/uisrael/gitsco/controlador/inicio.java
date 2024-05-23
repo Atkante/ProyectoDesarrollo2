@@ -11,6 +11,7 @@ public class inicio {
 	public String abrirIndex(){
 		return "Inicio";
 	}
+	
 }
 
 

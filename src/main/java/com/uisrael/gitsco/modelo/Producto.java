@@ -33,8 +33,8 @@ public class Producto implements Serializable {
 	private Date fechaIngreso;
 	private boolean estado;
 	
-	@OneToMany(mappedBy = "fkProducto")
-	private List<CabeceraPedido> listapedidos = new ArrayList<>();
+	// @OneToMany(mappedBy = "fkProducto")
+	// private List<CabeceraPedido> listapedidos = new ArrayList<>();
 	
 	@ManyToOne
 	@JoinColumn(name = "fkCategoria")

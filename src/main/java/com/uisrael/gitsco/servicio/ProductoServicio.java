@@ -18,7 +18,7 @@ public interface ProductoServicio {
 	
 	public List<Producto> listarProductoPrecio(@Param("valor") Double precio);
 
-	public List<Producto> listarProductosCategoria(@Param("idCategoria") int idCategoria, @Param("nombreCatergoria") String nombreCatergoria);
+	// public List<Producto> listarProductosCategoria(@Param("idCategoria") int idCategoria, @Param("nombreCatergoria") String nombreCatergoria);
 
 
 	public void eliminarProducto(int id);

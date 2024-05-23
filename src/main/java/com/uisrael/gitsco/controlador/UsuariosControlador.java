@@ -25,11 +25,11 @@ public class UsuariosControlador implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@GetMapping("/usuarios")
+	@GetMapping("/usuario")
 	public String verUsuarios(Model model) {
 		List<Usuarios> listaResultado = servicioUsuarios.listarUsuarios();
 		model.addAttribute("listaUsuarios", listaResultado);
-		return "usuarios";
+		return "usuario";
 	}
 	
 	@GetMapping("/nuevoUsuarios")
@@ -40,11 +40,11 @@ public class UsuariosControlador implements Serializable {
 	}
 	
 	@PostMapping("/guardarUsuarios")
-	public String guardarUsuarios(@ModelAttribute("nuevoPedido")Usuarios nuevo) {
+	public String guardarUsuarios(@ModelAttribute("nuevoUsuario")Usuarios nuevo) {
 		servicioUsuarios.crearUsuario(nuevo);
 		nuevo.setFechaContrato(new Date());
 		this.servicioUsuarios.crearUsuario(nuevo);
-		return "redirect:/usuarios";
+		return "redirect:/usuario";
 	}
 	@GetMapping("/editarUsuarios/{idUsuario}")
 	public String editarUsuarios(@PathVariable(value = "idUsuario")int idUsuario, Model modelUsuario) {

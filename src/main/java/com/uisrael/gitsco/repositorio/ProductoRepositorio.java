@@ -18,8 +18,8 @@ public interface ProductoRepositorio extends JpaRepository<Producto, Integer> {
 	@Query("select p from Producto p where p.idProductos = ?1")
 	public Producto buscarProductosId(int idProductos);
 	
-	@Query("SELECT p FROM Producto p WHERE p.fkCategoria.idCategoria = :idCategoria and p.fkCategoria.nombreCatergoria = :nombreCatergoria")
-	public List<Producto> listarProductosCategoria(@Param("idCategoria") int idCategoria, @Param("nombreCatergoria") String nombreCatergoria);
+	// @Query("SELECT p FROM Producto p WHERE p.fkCategoria.idCategoria = :idCategoria and p.fkCategoria.nombreCatergoria = :nombreCatergoria")
+	// public List<Producto> listarProductosCategoria(@Param("idCategoria") int idCategoria, @Param("nombreCatergoria") String nombreCatergoria);
 
 	/*@Query("SELECT p FROM Producto p WHERE p.Precio = : ?1 and p.estado > :?2")
 	public List<Producto> ListarProductosPrecio(Double precio,boolean Estado);

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
+	layout:decorate="~{plantilla/plantillaPrincipal}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body class="hold-transition sidebar-mini">
+	<div class="card" layout:fragment="content">
+	
+		<!-- /.card-header -->
+		<div class="card-body table-responsive p-0">
+			<table class="table table-hover text-nowrap">
+				<thead>
+					<tr>
+						<th scope="col">id Producto</th>
+						<th scope="col">nombre</th>
+						<th scope="col">Precio</th>
+						<th scope="col">Descripcion</th>
+						<th scope="col">Fecha de ingreso</th>
+						<th scope="col">Disponibilidad</th>
+						<th scope="col">Editar</th>
+						<th scope="col">Eliminar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="tmp:${ListadoProducto}">
+						<td th:text="${tmp.idProductos}"></td>
+						<td th:text="${tmp.nombre}"></td>
+						<td th:text="${tmp.precio}"></td>
+						<td th:text="${tmp.descripcion}"></td>
+						<td th:text="${tmp.fechaIngreso}"></td>
+						<td th:text="${tmp.estado}"></td>
+						<td><a th:href="@{/editarProducto/}+${tmp.idProductos}"
+							class="btn btn-success btn-circle"> <i class="fas fa-edit"></i>
+						</a></td>
+						<td><a
+							
+							th:href="@{/eliminarProducto/}+${tmp.idProductos}"
+							class="btn btn-danger btn-circle"> <i class="fas fa-trash"></i>
+						</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

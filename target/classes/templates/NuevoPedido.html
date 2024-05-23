@@ -1,75 +1,87 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
-	layout:decorate="~{plantilla/plantillaPrincipal}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net/thymeleaf/layout"
+  layout:decorate="~{plantilla/plantillaPrincipal}"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div layout:fragment="content">
+      <section class="content-header">
+        <!-- /.container-fluid -->
+      </section>
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6"></div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+      <div class="container-fluid">
+        <form
+          th:action="@{/guardarPedido}"
+          th:object="${nuevoPedido}"
+          method="post"
+        >
+          <div class="mb-3">
+            <label for="usuarios">Empleados</label>
+            <select
+              th:field="*{fkUsuarios.idUsuario}"
+              class="form-control"
+              id="usuarios"
+            >
+              <option value="0">Selecciona un Empleado</option>
+              <option
+                th:each="cat :${usuarios}"
+                th:value="${cat.idUsuario}"
+                th:text="${cat.nombreUsuario}"
+              ></option>
+            </select>
+            <label for="clientes">clientes</label>
+            <select
+              th:field="*{fkClientes.idCliente}"
+              class="form-control"
+              id="clientes"
+            >
+              <option value="0">Selecciona un cliente</option>
+              <option
+                th:each="cat :${clientes}"
+                th:value="${cat.idCliente}"
+                th:text="${cat.nombre}"
+              ></option>
+            </select>
+            
+            <!-- <label for="productos">Productos</label> -->
+            <!-- <select
+              th:field="*{fkProducto.idProductos}"
+              class="form-control"
+              id="productos"
+            >
+              <option value="0">Selecciona un producto</option>
+              <option
+                th:each="cat :${productos}"
+                
+                
+              ></option>
+            </select> -->
+          </div>
 
-
-</head>
-<body>
-	<div layout:fragment="content">
-		<section class="content-header">
-
-			<!-- /.container-fluid -->
-		</section>
-		<!-- Content Header (Page header) -->
-		<section class="content-header">
-			<div class="container-fluid">
-				<div class="row mb-2">
-
-					<div class="col-sm-6"></div>
-				</div>
-			</div>
-			<!-- /.container-fluid -->
-		</section>
-		<div class="container-fluid">
-
-
-
-			<form th:action="@{/guardarPedido}" th:object="${nuevoPedido}"
-				method="post">
-				<div class="mb-3">
-					<label for="usuarios">Empleados</label> <select
-						th:field="*{fkUsuarios.idUsuario}" class="form-control"
-						id="usuarios">
-						<option value="0">Selecciona un Empleado</option>
-						<option th:each="cat :${usuarios}" th:value="${cat.idUsuario}"
-							th:text="${cat.nombreUsuario}"></option>
-					</select> <label for="clientes">clientes</label> <select
-						th:field="*{fkClientes.idCliente}" class="form-control"
-						id="clientes">
-						<option value="0">Selecciona un cliente</option>
-						<option th:each="cat :${clientes}" th:value="${cat.idCliente}"
-							th:text="${cat.nombre}"></option>
-					</select> <label for="categoria">Categoria</label> <select
-						th:field="*{fkCategoria.idCategoria}" class="form-control"
-						id="categoria">
-						<option value="0">Selecciona una categoria</option>
-						<option th:each="cat :${categorias}" th:value="${cat.idCategoria}"
-							th:text="${cat.nombreCatergoria}"></option>
-					</select> <label for="productos">Productos</label> <select
-						th:field="*{fkProducto.idProductos}" class="form-control"
-						id="productos">
-						<option value="0">Selecciona un producto</option>
-						<option th:each="cat :${productos}" th:value="${cat.idProductos}"
-							th:text="${cat.nombre}"></option>
-					</select>
-				</div>
-
-
-
-				<button type="submit" class="btn btn-primary">Save</button>
-				<input type="hidden" th:field="*{idPedidos}">
-				<button class="btn btn-primary"
-					onclick="location.href='//www.localhost:8080/cabeceraPedido'"
-					type="button">back</button>
-			</form>
-
-		</div>
-
-	</div>
-
-</body>
+          <button type="submit" class="btn btn-primary">Save</button>
+          <input type="hidden" th:field="*{idPedidos}" />
+          <button
+            class="btn btn-primary"
+            onclick="location.href='//www.localhost:8080/cabeceraPedido'"
+            type="button"
+          >
+            back
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

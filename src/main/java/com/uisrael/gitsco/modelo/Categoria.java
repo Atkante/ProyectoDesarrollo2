@@ -39,6 +39,5 @@ public class Categoria implements Serializable {
 	@OneToMany(mappedBy = "fkCategoria")
 	private List<Producto> listaProducto = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "fkCategoria")
-	private List<CabeceraPedido> listaPedido = new ArrayList<>();
+
 }

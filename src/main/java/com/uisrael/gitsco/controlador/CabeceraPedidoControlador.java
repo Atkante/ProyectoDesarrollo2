@@ -54,7 +54,7 @@ public class CabeceraPedidoControlador implements Serializable {
 	public String crearPedido(Model modelPedido) {
 		CabeceraPedido nuevoPedido = new CabeceraPedido();
 		modelPedido.addAttribute("nuevoPedido", nuevoPedido);
-		modelPedido.addAttribute("categorias", servicioCategoria.listarCategoria());
+		
 		modelPedido.addAttribute("usuarios", servicioUsuarios.listarUsuarios());
 		modelPedido.addAttribute("clientes", servicioCliente.listarCliente());
 		modelPedido.addAttribute("productos", servicioProducto.listarProductos());
@@ -71,7 +71,7 @@ public class CabeceraPedidoControlador implements Serializable {
 	@GetMapping("/editarPedido/{idPedidos}")
 	public String editarPedido(@PathVariable(value = "idPedidos")int idPedidos, Model modelPedido) {
 		modelPedido.addAttribute("nuevoPedido",servicioPedido.buscarPedidosId(idPedidos));
-		modelPedido.addAttribute("categorias", servicioCategoria.listarCategoria());
+		
 		modelPedido.addAttribute("usuarios", servicioUsuarios.listarUsuarios());
 		modelPedido.addAttribute("clientes", servicioCliente.listarCliente());
 		modelPedido.addAttribute("productos", servicioProducto.listarProductos());
